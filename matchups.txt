@@ -1,0 +1,5 @@
+Michigan,Colorado State
+Vermont,Arkansas
+Providence,South Dakota State
+Creighton,San Diego State
+Indiana,Saint Mary's
