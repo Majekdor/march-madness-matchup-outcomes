@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "mm-permutations"
+name = "march-madness-matchup-outcomes"
 version = "0.1.0"

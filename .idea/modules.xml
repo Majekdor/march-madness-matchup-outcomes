@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mm-permutations.iml" filepath="$PROJECT_DIR$/mm-permutations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/march-madness-matchup-outcomes.iml" filepath="$PROJECT_DIR$/march-madness-matchup-outcomes.iml" />
     </modules>
   </component>
 </project>

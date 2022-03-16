@@ -9,7 +9,8 @@ use std::sync::atomic::{AtomicI32, Ordering};
 ///
 /// **Description:** This program takes any number of game match-ups and tells you all possible
 /// combinations of those match-ups.
-/// > Note: There are only two outcomes: win or lose. There are no ties.
+///
+/// **Note:** There are only two outcomes: win or lose. There are no ties.
 ///
 /// **Example:** If you gave the program 2 match-ups there will be four possible combinations
 /// of the outcomes of those match-ups. 3 match-ups would be 8 combinations and so on.
@@ -59,13 +60,18 @@ fn main() {
     }
 
     println!("Determining all possible combinations of winners...\n");
-    recurse(&match_ups, 0, &String::from("Winners:"));
-    println!("\nTotal winners: {}", WINNERS_COUNTER.fetch_add(0, Ordering::Relaxed));
+    recurse(
+        &match_ups,
+        0,
+        &String::from("Winners:")
+    );
+    println!("\nTotal outcomes: {}", OUTCOMES_COUNTER.fetch_add(0, Ordering::Relaxed));
 }
 
-static WINNERS_COUNTER: AtomicI32 = AtomicI32::new(0);
+/// Counter for the number of outcomes of the match-ups.
+static OUTCOMES_COUNTER: AtomicI32 = AtomicI32::new(0);
 
-/// Recursively attain all possible combinations of winners from an array of match-ups.
+/// Recursively determine all possible combinations of winners from an array of match-ups.
 fn recurse(values: &Vec<Pair<String>>, level: usize, winners: &String) {
     if level < values.len() {
         // This is either 1 or 2, which picks the first or second team from the pair to be the winner
@@ -78,7 +84,7 @@ fn recurse(values: &Vec<Pair<String>>, level: usize, winners: &String) {
         }
     } else {
         // Increment winner count and print this combination of winners
-        WINNERS_COUNTER.fetch_add(1, Ordering::Relaxed);
+        OUTCOMES_COUNTER.fetch_add(1, Ordering::Relaxed);
         println!("{}", winners);
     }
 }
